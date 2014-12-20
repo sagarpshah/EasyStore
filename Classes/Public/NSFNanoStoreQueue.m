@@ -7,7 +7,6 @@
 //
 
 #import "NSFNanoStoreQueue.h"
-#import "NSFNanoStore.h"
 
 static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
 

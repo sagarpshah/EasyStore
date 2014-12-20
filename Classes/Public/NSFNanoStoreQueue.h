@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class NSFNanoStore;
+#import "NSFNanoStore.h"
 
 @interface NSFNanoStoreQueue : NSObject {
     NSFNanoStore *_store;

@@ -64,10 +64,11 @@
  */
 
 #import <Foundation/Foundation.h>
-
 #import <sqlite3.h>
-
-@class NSFNanoEngine, NSFNanoResult, NSFNanoBag, NSFNanoSortDescriptor;
+#import "NSFNanoEngine.h"
+#import "NSFNanoResult.h"
+#import "NSFNanoBag.h"
+#import "NSFNanoSortDescriptor.h"
 
 @interface NSFNanoStore : NSObject
 

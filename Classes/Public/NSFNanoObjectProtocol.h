@@ -35,6 +35,8 @@
  * Check NSFNanoBag or NSFNanoObject to see a concrete example of how NSFNanoObjectProtocol is implemented.
  */
 
+#import <Foundation/Foundation.h>
+
 @class NSFNanoStore;
 
 @protocol NSFNanoObjectProtocol
