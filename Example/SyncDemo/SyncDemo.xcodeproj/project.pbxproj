@@ -16,7 +16,6 @@
 		0B598FA41A41A25C00252CB0 /* Holiday.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B598FA31A41A25C00252CB0 /* Holiday.m */; };
 		0B598FE11A41A3C500252CB0 /* HolidaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B598FE01A41A3C500252CB0 /* HolidaysViewController.m */; };
 		0B598FE41A41A69A00252CB0 /* AddHolidayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B598FE31A41A69A00252CB0 /* AddHolidayViewController.m */; };
-		0B598FE71A41AF6C00252CB0 /* DismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B598FE61A41AF6C00252CB0 /* DismissSegue.m */; };
 		0B598FEB1A41B07900252CB0 /* HolidayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B598FEA1A41B07900252CB0 /* HolidayTableViewCell.m */; };
 		0BC002DE1A451C3E00C8F383 /* NSFNanoEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC002B91A451C3E00C8F383 /* NSFNanoEngine.m */; };
 		0BC002DF1A451C3E00C8F383 /* NSFNanoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC002BB1A451C3E00C8F383 /* NSFNanoResult.m */; };
@@ -30,6 +29,9 @@
 		0BC002E71A451C3E00C8F383 /* NSFNanoSortDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC002D91A451C3E00C8F383 /* NSFNanoSortDescriptor.m */; };
 		0BC002E81A451C3E00C8F383 /* NSFNanoStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC002DB1A451C3E00C8F383 /* NSFNanoStore.m */; };
 		0BC002E91A451C3E00C8F383 /* NSFNanoStoreQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC002DD1A451C3E00C8F383 /* NSFNanoStoreQueue.m */; };
+		0BC002ED1A45232E00C8F383 /* DismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC002EC1A45232E00C8F383 /* DismissSegue.m */; };
+		0BC002F01A45239400C8F383 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC002EF1A45239400C8F383 /* Constants.m */; };
+		0BC0032D1A45297100C8F383 /* HolidayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC0032C1A45297100C8F383 /* HolidayHelper.m */; };
 		65F29A25E71F870F7DB8BF85 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44185D19B9C6CF064782555A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +63,6 @@
 		0B598FE01A41A3C500252CB0 /* HolidaysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HolidaysViewController.m; sourceTree = "<group>"; };
 		0B598FE21A41A69A00252CB0 /* AddHolidayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddHolidayViewController.h; sourceTree = "<group>"; };
 		0B598FE31A41A69A00252CB0 /* AddHolidayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddHolidayViewController.m; sourceTree = "<group>"; };
-		0B598FE51A41AF6C00252CB0 /* DismissSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissSegue.h; sourceTree = "<group>"; };
-		0B598FE61A41AF6C00252CB0 /* DismissSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissSegue.m; sourceTree = "<group>"; };
 		0B598FE91A41B07900252CB0 /* HolidayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HolidayTableViewCell.h; sourceTree = "<group>"; };
 		0B598FEA1A41B07900252CB0 /* HolidayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HolidayTableViewCell.m; sourceTree = "<group>"; };
 		0BC002B81A451C3E00C8F383 /* NSFNanoEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFNanoEngine.h; sourceTree = "<group>"; };
@@ -101,6 +101,12 @@
 		0BC002DB1A451C3E00C8F383 /* NSFNanoStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFNanoStore.m; sourceTree = "<group>"; };
 		0BC002DC1A451C3E00C8F383 /* NSFNanoStoreQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFNanoStoreQueue.h; sourceTree = "<group>"; };
 		0BC002DD1A451C3E00C8F383 /* NSFNanoStoreQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFNanoStoreQueue.m; sourceTree = "<group>"; };
+		0BC002EB1A45232E00C8F383 /* DismissSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissSegue.h; sourceTree = "<group>"; };
+		0BC002EC1A45232E00C8F383 /* DismissSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissSegue.m; sourceTree = "<group>"; };
+		0BC002EE1A45239400C8F383 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		0BC002EF1A45239400C8F383 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		0BC0032B1A45297100C8F383 /* HolidayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HolidayHelper.h; sourceTree = "<group>"; };
+		0BC0032C1A45297100C8F383 /* HolidayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HolidayHelper.m; sourceTree = "<group>"; };
 		41657D0B579AF7A4D51D45BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		44185D19B9C6CF064782555A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		642C53160B38E3D1D20DB832 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,14 +154,14 @@
 		0B598F7A1A41A09100252CB0 /* SyncDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0BC0032A1A45296600C8F383 /* Helpers */,
+				0BC002EA1A45232000C8F383 /* Utilities */,
 				0BC002B61A451C3E00C8F383 /* EasyStore */,
 				0B598FA11A41A24B00252CB0 /* Models */,
 				0B598FE81A41B06B00252CB0 /* Views */,
 				0B598FDE1A41A3AD00252CB0 /* Controllers */,
 				0B598F7F1A41A09100252CB0 /* AppDelegate.h */,
 				0B598F801A41A09100252CB0 /* AppDelegate.m */,
-				0B598FE51A41AF6C00252CB0 /* DismissSegue.h */,
-				0B598FE61A41AF6C00252CB0 /* DismissSegue.m */,
 				0B598F851A41A09100252CB0 /* Main.storyboard */,
 				0B598F881A41A09100252CB0 /* Images.xcassets */,
 				0B598F8A1A41A09100252CB0 /* LaunchScreen.xib */,
@@ -285,6 +291,26 @@
 				0BC002DD1A451C3E00C8F383 /* NSFNanoStoreQueue.m */,
 			);
 			path = Public;
+			sourceTree = "<group>";
+		};
+		0BC002EA1A45232000C8F383 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0BC002EB1A45232E00C8F383 /* DismissSegue.h */,
+				0BC002EC1A45232E00C8F383 /* DismissSegue.m */,
+				0BC002EE1A45239400C8F383 /* Constants.h */,
+				0BC002EF1A45239400C8F383 /* Constants.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0BC0032A1A45296600C8F383 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0BC0032B1A45297100C8F383 /* HolidayHelper.h */,
+				0BC0032C1A45297100C8F383 /* HolidayHelper.m */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		DF13AAD9CD10BE87C493377D /* Frameworks */ = {
@@ -441,8 +467,11 @@
 			files = (
 				0BC002E51A451C3E00C8F383 /* NSFNanoPredicate.m in Sources */,
 				0B598FE41A41A69A00252CB0 /* AddHolidayViewController.m in Sources */,
+				0BC0032D1A45297100C8F383 /* HolidayHelper.m in Sources */,
+				0BC002ED1A45232E00C8F383 /* DismissSegue.m in Sources */,
 				0B598FE11A41A3C500252CB0 /* HolidaysViewController.m in Sources */,
 				0BC002E61A451C3E00C8F383 /* NSFNanoSearch.m in Sources */,
+				0BC002F01A45239400C8F383 /* Constants.m in Sources */,
 				0B598FEB1A41B07900252CB0 /* HolidayTableViewCell.m in Sources */,
 				0BC002E91A451C3E00C8F383 /* NSFNanoStoreQueue.m in Sources */,
 				0BC002DE1A451C3E00C8F383 /* NSFNanoEngine.m in Sources */,
@@ -451,7 +480,6 @@
 				0BC002E31A451C3E00C8F383 /* NSFNanoGlobals.m in Sources */,
 				0BC002E41A451C3E00C8F383 /* NSFNanoObject.m in Sources */,
 				0B598F811A41A09100252CB0 /* AppDelegate.m in Sources */,
-				0B598FE71A41AF6C00252CB0 /* DismissSegue.m in Sources */,
 				0BC002DF1A451C3E00C8F383 /* NSFNanoResult.m in Sources */,
 				0B598FA41A41A25C00252CB0 /* Holiday.m in Sources */,
 				0BC002E71A451C3E00C8F383 /* NSFNanoSortDescriptor.m in Sources */,
