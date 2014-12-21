@@ -11,4 +11,11 @@
 
 @interface Holiday : NSFNanoObject
 
+@property (strong, nonatomic) NSString *objectID;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *details;
+@property (strong, nonatomic) NSDate *date;
+
+- (void)setHoliday:(Holiday *)aHoliday;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Constants.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.operationManager = [AFHTTPRequestOperationManager manager];
+    [self.operationManager.requestSerializer setValue:kApplicationIDValue forHTTPHeaderField:kApplicationIDKey];
+    [self.operationManager.requestSerializer setValue:kRestAPIValue forHTTPHeaderField:kRestAPIKey];
+    
+    [self instantiateDocumentStore];
+    
     return YES;
 }
 
@@ -40,6 +48,31 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)instantiateDocumentStore {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentFilePath = [documentsDirectory stringByAppendingPathComponent:@"Database.db"];
+    
+    self.nanoStoreQueue = [NSFNanoStoreQueue createStoreQueueWithType:NSFPersistentStoreType path:documentFilePath];
+    
+    [self.nanoStoreQueue inStore:^(NSFNanoStore *store) {
+        NSFNanoEngine *nanoStoreEngine = [store nanoStoreEngine];
+        [nanoStoreEngine setSynchronousMode:SynchronousModeOff];
+        [nanoStoreEngine setEncodingType:NSFEncodingUTF16];
+//        [nanoStoreEngine setKey:kDatabaseSecretKey];
+        
+        [store openWithError:nil];
+    }];
+}
+
+- (void)dealloc {
+    self.window = nil;
+    self.nanoStoreQueue = nil;
+    
+    [self.operationManager.operationQueue cancelAllOperations];
+    self.operationManager = nil;
 }
 
 @end
