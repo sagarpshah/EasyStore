@@ -7,6 +7,7 @@
 //
 
 #import "AddHolidayViewController.h"
+#import "Holiday.h"
 
 @interface AddHolidayViewController ()
 
@@ -30,8 +31,27 @@
     if ([[segue identifier] isEqualToString:@"Cancel"]) {
         
     } else if ([[segue identifier] isEqualToString:@"Save"]) {
+        NSString *name = [[_nameTextField text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
+        if (name.length) {
+            Holiday *holiday = [[Holiday alloc] init];
+            holiday.name = name;
+            holiday.date = [_datePicker date];
+            
+            [_holidaysController addHoliday:holiday];
+        }
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)dealloc {
+    self.nameTextField = nil;
+    self.datePicker = nil;
+    self.holidaysController = nil;
 }
 
 @end

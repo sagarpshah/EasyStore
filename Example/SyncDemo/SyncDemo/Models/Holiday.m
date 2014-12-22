@@ -7,6 +7,9 @@
 //
 
 #import "Holiday.h"
+#import "Constants.h"
+#import "AFHTTPRequestOperationManager.h"
+#import "AppDelegate.h"
 
 #define ID      @"objectID"
 #define NAME    @"nameKey"
@@ -31,10 +34,17 @@
 - (NSDictionary *)nanoObjectDictionaryRepresentation {
     NSMutableDictionary *representation = [[NSMutableDictionary alloc] initWithDictionary:[super nanoObjectDictionaryRepresentation]];
     
-    [representation setObject:_objectID forKey:ID];
-    [representation setObject:_name forKey:NAME];
-    [representation setObject:_details forKey:DETAILS];
-    [representation setObject:_date forKey:DATE];
+    if (_objectID != nil)
+        [representation setObject:_objectID forKey:ID];
+    
+    if (_name != nil)
+        [representation setObject:_name forKey:NAME];
+    
+    if (_details != nil)
+        [representation setObject:_details forKey:DETAILS];
+    
+    if (_date != nil)
+        [representation setObject:_date forKey:DATE];
     
     return representation;
 }
@@ -53,11 +63,80 @@
     self.date = aHoliday.date;
 }
 
+- (NSString *)formattedDate {
+    if (_formattedDate == nil) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterShortStyle];
+        _formattedDate = [formatter stringFromDate:_date];
+    }
+    
+    return _formattedDate;
+}
+
+- (NSDictionary *)apiRepresentation {
+    NSMutableDictionary *representation = [[NSMutableDictionary alloc] init];
+    
+    if (_name != nil)
+        [representation setObject:_name forKey:@"name"];
+    
+    if (_details != nil)
+        [representation setObject:_details forKey:@"details"];
+    
+    if (_date != nil) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'"];
+        
+        NSString *dateString = [dateFormatter stringFromDate:_date];
+        NSDictionary *dateDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Date", @"__type", dateString, @"iso", nil];
+        [representation setObject:dateDictionary forKey:@"date"];
+    }
+
+    return representation;
+}
+
+- (void)save {
+    
+    if ([_saveOperation isExecuting]) {
+        [_saveOperation cancel];
+        self.saveOperation = nil;
+    }
+    
+    NSString *parseRestAPIURLString = [kServerBaseURL stringByAppendingString:kServerAPIPath];
+    NSString *createHolidayURLString = [parseRestAPIURLString stringByAppendingString:NSStringFromClass([Holiday class])];
+
+    if (_objectID != nil) {
+        createHolidayURLString = [createHolidayURLString stringByAppendingFormat:@"/%@", _objectID];
+    }
+    
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    self.saveOperation = [appDelegate.operationManager POST:createHolidayURLString parameters:[self apiRepresentation] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        self.objectID = [responseObject objectForKey:@"objectId"];
+        
+        [appDelegate.nanoStoreQueue inStore:^(NSFNanoStore *store) {
+            [store addObject:self error:nil];
+        }];
+        
+        if (operation == _saveOperation)
+            _saveOperation = nil;
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        if (operation == _saveOperation)
+            _saveOperation = nil;
+    }];
+}
+
 - (void)dealloc {
+    [self.saveOperation cancel];
+    self.saveOperation = nil;
+    
     self.objectID = nil;
     self.name = nil;
     self.details = nil;
     self.date = nil;
+    self.formattedDate = nil;
 }
 
 @end

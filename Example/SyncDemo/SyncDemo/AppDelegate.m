@@ -20,6 +20,7 @@
     // Override point for customization after application launch.
     
     self.operationManager = [AFHTTPRequestOperationManager manager];
+    self.operationManager.requestSerializer = [AFJSONRequestSerializer serializer];
     [self.operationManager.requestSerializer setValue:kApplicationIDValue forHTTPHeaderField:kApplicationIDKey];
     [self.operationManager.requestSerializer setValue:kRestAPIValue forHTTPHeaderField:kRestAPIKey];
     

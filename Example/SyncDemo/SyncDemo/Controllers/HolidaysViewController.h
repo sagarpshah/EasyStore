@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class Holiday;
+
 @interface HolidaysViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *holidayTableView;
+
+- (void)addHoliday:(Holiday *)holiday;
 
 @end

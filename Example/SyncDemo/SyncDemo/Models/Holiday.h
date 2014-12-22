@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NSFNanoObject.h"
+#import "AFHTTPRequestOperation.h"
 
 @interface Holiday : NSFNanoObject
 
@@ -15,7 +16,11 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *details;
 @property (strong, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSString *formattedDate;
+@property (strong, nonatomic) AFHTTPRequestOperation *saveOperation;
 
 - (void)setHoliday:(Holiday *)aHoliday;
+
+- (void)save;
 
 @end

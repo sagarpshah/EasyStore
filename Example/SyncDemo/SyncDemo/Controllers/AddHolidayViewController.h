@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HolidaysViewController.h"
 
-@interface AddHolidayViewController : UIViewController
+@interface AddHolidayViewController : UIViewController <UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) HolidaysViewController *holidaysController;
 
 @end

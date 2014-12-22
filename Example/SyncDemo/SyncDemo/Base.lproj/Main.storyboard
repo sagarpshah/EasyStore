@@ -116,7 +116,42 @@
                     <view key="view" contentMode="scaleToFill" id="FwQ-Ld-qyj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Holiday Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftk-r4-lrg">
+                                <rect key="frame" x="16" y="76" width="108" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="PyM-VZ-WAn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TpJ-Us-ssh">
+                                <rect key="frame" x="132" y="72" width="452" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="sH7-KO-OKn" id="5vo-Le-hBH"/>
+                                </connections>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="5Wg-04-ykq">
+                                <rect key="frame" x="0.0" y="438" width="600" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="440870235.82442099">
+                                    <!--2014-12-21 15:57:15 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ftk-r4-lrg" firstAttribute="leading" secondItem="FwQ-Ld-qyj" secondAttribute="leading" constant="16" id="K1L-xP-6vl"/>
+                            <constraint firstItem="TpJ-Us-ssh" firstAttribute="centerY" secondItem="ftk-r4-lrg" secondAttribute="centerY" constant="0.5" id="RmC-9V-Irw"/>
+                            <constraint firstAttribute="trailing" secondItem="TpJ-Us-ssh" secondAttribute="trailing" constant="16" id="X7u-fQ-veL"/>
+                            <constraint firstItem="cXv-H9-J9B" firstAttribute="top" secondItem="5Wg-04-ykq" secondAttribute="bottom" id="XkQ-kU-GqG"/>
+                            <constraint firstItem="5Wg-04-ykq" firstAttribute="width" secondItem="FwQ-Ld-qyj" secondAttribute="width" id="q43-S3-Qmn"/>
+                            <constraint firstItem="ftk-r4-lrg" firstAttribute="top" secondItem="mNi-1T-YEF" secondAttribute="bottom" constant="12" id="qSr-lA-2mj"/>
+                            <constraint firstItem="TpJ-Us-ssh" firstAttribute="leading" secondItem="ftk-r4-lrg" secondAttribute="trailing" constant="8" id="tKU-Ha-gcd"/>
+                            <constraint firstItem="5Wg-04-ykq" firstAttribute="leading" secondItem="FwQ-Ld-qyj" secondAttribute="leading" id="txN-xI-kVR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7Dg-Hr-h5i">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6LW-bi-apX">
@@ -130,6 +165,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="5Wg-04-ykq" id="ir2-QX-zzN"/>
+                        <outlet property="nameTextField" destination="TpJ-Us-ssh" id="4Ix-Tb-Gt8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GJ5-pB-NoN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,6 +190,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="d8v-t4-rq7"/>
+        <segue reference="eoW-HA-lXg"/>
     </inferredMetricsTieBreakers>
 </document>
